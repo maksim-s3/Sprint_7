@@ -23,10 +23,10 @@ public class OrderCreateParametrizedTests {
     @Parameterized.Parameters
     public static Object[][] getOrder() {
         return new Object[][]{
-                {OrderGenerator.getDefaultColorBlack()},
-                {OrderGenerator.getDefaultColorGrey()},
-                {OrderGenerator.getDefaultColorBlackAndGrey()},
-                {OrderGenerator.getDefaultColorEmpty()},
+                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.BLACK})},
+                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.GREY})},
+                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.BLACK, ColorScooter.GREY})},
+                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{})},
         };
     }
 
