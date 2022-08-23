@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.ValidatableResponse;
 import org.junit.After;
@@ -14,7 +15,8 @@ import static org.junit.Assert.assertNotNull;
 public class OrderCreateParametrizedTests {
     private Order order;
     private OrderClient orderClient;
-    int trackOrder;
+    private int trackOrder;
+    private static Faker faker = new Faker();
 
     public OrderCreateParametrizedTests(Order order) {
         this.order = order;
@@ -23,10 +25,10 @@ public class OrderCreateParametrizedTests {
     @Parameterized.Parameters
     public static Object[][] getOrder() {
         return new Object[][]{
-                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.BLACK})},
-                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.GREY})},
-                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{ColorScooter.BLACK, ColorScooter.GREY})},
-                {new Order("Иван", "Иванов", "Открытое шоссе, 12с1", "Бульвар Рокоссовского", "89123456789", 5, "2022-08-20", "Позвонить за 15мин", new String[]{})},
+                {new Order(faker.name().firstName(), faker.name().lastName(), faker.address().secondaryAddress(), "1", faker.phoneNumber().cellPhone(), 5, "2022-08-25", "Позвонить за 15мин", new String[]{ColorScooter.BLACK})},
+                {new Order(faker.name().firstName(), faker.name().lastName(), faker.address().secondaryAddress(), "2", faker.phoneNumber().cellPhone(), 5, "2022-08-25", "Позвонить за 15мин", new String[]{ColorScooter.GREY})},
+                {new Order(faker.name().firstName(), faker.name().lastName(), faker.address().secondaryAddress(), "2", faker.phoneNumber().cellPhone(), 5, "2022-08-25", "Позвонить за 15мин", new String[]{ColorScooter.BLACK, ColorScooter.GREY})},
+                {new Order(faker.name().firstName(), faker.name().lastName(), faker.address().secondaryAddress(), "2", faker.phoneNumber().cellPhone(), 5, "2022-08-25", "Позвонить за 15мин", new String[]{})},
         };
     }
 
