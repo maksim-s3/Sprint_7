@@ -18,13 +18,12 @@ public class CreatingCourierTests {
     @Before
     public void setUp() {
         courierClient = new CourierClient();
+        courier = CourierGenerator.getDefault();
     }
 
     @Test
     @DisplayName("Check can create courier")
     public void courierCanBeCreatedTest() {
-        courier = CourierGenerator.getDefault();
-
         ValidatableResponse responseCreated = courierClient.create(courier);
         int statusCode = responseCreated.extract().statusCode();
         assertEquals("Status code incorrect", SC_CREATED, statusCode);
