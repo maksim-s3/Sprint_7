@@ -1,8 +1,0 @@
--------------------------------------------------------------------------------
-Test set: LoginCourierTests
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 63.307 s <<< FAILURE! - in LoginCourierTests
-notCanBeLoginIsEmptyPasswordReturnErrorMessageTest(LoginCourierTests)  Time elapsed: 60.577 s  <<< FAILURE!
-java.lang.AssertionError: Status code incorrect expected:<400> but was:<504>
-	at LoginCourierTests.notCanBeLoginIsEmptyPasswordReturnErrorMessageTest(LoginCourierTests.java:52)
-
